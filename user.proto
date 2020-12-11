@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+option csharp_namespace = "Domains";
+
 message User {
     string sku = 1;
     string name = 2;
