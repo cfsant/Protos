@@ -1,21 +1,12 @@
-syntax = "base";
+syntax = "proto3";
 
-option csharp_namespace = "Services";
-
-package base;
+message Base {
+    string sku = 1;
+    string tag = 2;
+}
 
 // The greeting service definition.
 service Base {
   // Ctor
-  rpc Get (Req) returns (Res { key = Req.key });
-}
-
-// The request message containing the user's name.
-message Req {
-  string key = 1;
-}
-
-// The response message containing the greetings.
-message Res {
-  string key = 1;
+  rpc Get() returns (Base);
 }
