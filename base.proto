@@ -1,12 +1,35 @@
 syntax = "proto3";
 
-message Base {
+message User {
     string sku = 1;
-    string tag = 2;
+    string name = 2;
+    string pass = 3;
+    string mail = 4;
+    string tag = 4;
 }
 
-// The greeting service definition.
-service Base {
-  // Ctor
-  rpc Get() returns (Base);
+message FetchUserBySku 
+{
+    string sku = 1;
+}
+
+message FetchUserByTag
+{
+    string sku = 1;
+}
+
+message FetchUserByNameAndPass
+{
+    string name = 2;
+    string pass = 3;
+}
+
+service UserService {
+  // Crud
+  rpc Get(FetchUserBySku) returns (User);
+  rpc GetByTag(FetchUserByTag) returns (User);
+  rpc GetByNameAndPass(FetchUserByNameAndPass) returns (User);
+  rpc Del(FetchUserBySku) returns (User);
+  rpc Set(User) returns (User);
+  rpc Put(User) returns (User);
 }
