@@ -2,12 +2,14 @@ syntax = "proto3";
 
 option csharp_namespace = "Domains";
 
+package user;
+
 message User {
     string sku = 1;
     string name = 2;
     string pass = 3;
     string mail = 4;
-    string tag = 4;
+    string tag = 5;
 }
 
 message FetchUserBySku 
@@ -22,12 +24,11 @@ message FetchUserByTag
 
 message FetchUserByNameAndPass
 {
-    string name = 2;
-    string pass = 3;
+    string name = 1;
+    string pass = 2;
 }
 
-service UserService {
-  // Crud
+service Users {
   rpc Get(FetchUserBySku) returns (User);
   rpc GetByTag(FetchUserByTag) returns (User);
   rpc GetByNameAndPass(FetchUserByNameAndPass) returns (User);
