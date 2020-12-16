@@ -20,7 +20,7 @@ def main():
         print(f'ERR: node_modules PROTOC[{protoc}] (code:0X003).')
         return
 
-    command = f'protoc --plugin="protoc-gen-ts={protoc}" --js_out="import_style=commonjs,binary:{path}" --ts_out="{path}" -I {path} *.proto'
+    command = f'protoc --plugin="protoc-gen-ts={protoc}" --js_out="import_style=commonjs,binary:{path}" --ts_out="{path}" -I {path} user.proto'
     print(f'Execute command: {command}')
     os.system(command)
 
